@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>NodeJs News</title>
+    <link rel="stylesheet" href="/css/style.css" />
+  </head>
+  <body>
+    <header class="header">
+      <div class="header__logo">NodeJS News</div>
+      <%- include('./partials/search.ejs') %>
+    </header>
+
+    <div class="wrapper">
+      <div class="news">
+        <% if(articles != null) { articles.forEach(function(articles, index) { %>
+        <a href="/article/<%- articles.id %>" class="news__card">
+          <img src="<%- articles.thumbnail_url %>" alt="<%- articles.title.rendered %>" />
+          <h2><%- articles.title.rendered %></h2>
+          <p><%- articles.excerpt.rendered %></p>
+        </a>
+        <% })} %>
+      </div>
+    </div>
+  </body>
+</html>
